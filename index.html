@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abollo Isaac - Personal Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f0f0f;
+      color: #fff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #141e30, #243b55);
+      text-align: center;
+      padding: 2rem;
+      opacity: 0;
+      animation: fadeIn 2s forwards ease-in-out;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      animation: typing 3s steps(30, end) forwards, blink .75s step-end infinite;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid white;
+      width: 0;
+    }
+
+    #typed-subtext {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid white;
+      width: 0;
+      animation: typing-sub 4s steps(40, end) 3s forwards, blink .75s step-end infinite 3s;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes typing-sub {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-in, transform 1s ease-in;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      color: #ffd700;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      margin: 0.5rem 0;
+    }
+
+    .contact a {
+      display: block;
+      margin: 0.3rem 0;
+      color: #0ff;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      color: #999;
+      opacity: 0;
+      animation: fadeIn 2s 0.5s forwards ease-in-out;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      #typed-subtext {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="typed-text">Abollo Isaac</h1>
+    <p id="typed-subtext">Creative Visionary | Game Developer | Digital Innovator</p>
+  </header>
+
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm Abollo Isaac, founder of <strong>Abollo Studios</strong>. I specialize in creative development using modern digital tools. From bold websites to AI-driven content and engaging interactive experiences, I bring ideas to life with a unique edge.
+    </p>
+  </section>
+
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>🎮 Game Dev: Unity, Godot, Blender</li>
+      <li>🧠 AI Tools: ChatGPT, DALL·E, Runway ML</li>
+      <li>🌐 Web Dev: HTML5, CSS, JS, Netlify</li>
+      <li>🎨 Design: Figma, Canva, Photoshop</li>
+    </ul>
+  </section>
+
+  <section class="section" id="portfolio">
+    <h2>Projects & Portfolio</h2>
+    <ul>
+      <li><strong>AI E-book</strong>: Guide to Monetizing No-Code Tools — <a href="#">Read Now</a></li>
+      <li><strong>Personal Website</strong>: Fiverr-ready animated site — <a href="#">Explore</a></li>
+      <li><strong>Custom AI Tools</strong>: Automation & Marketing Builds — <a href="#">View</a></li>
+    </ul>
+  </section>
+
+  <section class="section contact" id="contact">
+    <h2>Contact</h2>
+    <a href="mailto:abollo@email.com">📧 abollo@email.com</a>
+    <a href="https://github.com/abollo-dev" target="_blank">💻 GitHub: @abollo-dev</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Abollo Isaac. All Rights Reserved.
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
